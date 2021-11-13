@@ -108,7 +108,7 @@ do_cmd_certificates_ls() {
 }
 
 do_cmd_certificates_rm() {
-	do_curl_jq -X DELETE "$DO_API_URL/v2/certificates/$2"
+	do_curl_jq -X DELETE "$DO_API_URL/v2/certificates/$1"
 }
 
 do_cmd_certificates_push() {
