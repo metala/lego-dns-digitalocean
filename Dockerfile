@@ -1,10 +1,10 @@
-FROM golang:1.12-alpine as builder
+FROM golang:1.17-alpine as builder
 
 RUN apk add --no-cache git \
-    && go get -v github.com/go-acme/lego/cmd/lego
+    && go get -v github.com/go-acme/lego/v4/cmd/lego@v4.5.3
 
 # Runtime image
-FROM alpine:3.9
+FROM alpine:3.14
 
 ENV LEGO_DNS=cloudflare
 ENV LEGO_DOMAIN=
