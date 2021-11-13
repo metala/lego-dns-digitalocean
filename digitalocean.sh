@@ -30,7 +30,12 @@ do_json_new_certificate() {
 		--arg name "$NAME" \
 		--rawfile key "$CERT_PATH_PREFIX.key" \
 		--rawfile crt "$CERT_PATH_PREFIX.crt" \
-		'.name=$name | .type="custom" | .private_key=$key | .leaf_certificate=($crt | split("\n\n") | (.[0] + "\n")) | .certificate_chain=$crt'
+		--rawfile chain "$CERT_PATH_PREFIX.issuer.crt" \
+		'.type="custom"
+		| .name=$name
+		| .private_key=$key
+		| .leaf_certificate=($crt | split("\n\n") | (.[0] + "\n"))
+		| .certificate_chain=($chain | split("\n\n") | join("\n"))'
 }
 
 do_certificates_find_by_fingerprint() {
