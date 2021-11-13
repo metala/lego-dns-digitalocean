@@ -6,7 +6,7 @@
 
 DigitalOcean does not support Let's Encrypt for delegated subdomains or CNAMEs, at the moment of writing. If you are using CloudFlare or different DNS provider, it leaves you with the only option to use custom certificate for your CDN endpoint.
 This tool extends that option and allows you to acquire Let's Encrypt certificate for your endpoint CNAME records using [lego](://github.com/go-acme/lego) and DNS-01 challenge. The certificate is pushed to DigitalOcean and it is set as a custom certificate to your endpoint.
-The tool is dockerized and is designed to run in a container. However, you can run it through `main.sh`, but it requires you to have `lego` and `jq` installed in your system.
+The tool is dockerized and is designed to run in a container. However, you can run it through `main.sh`, but it requires you to have `lego`, `jq` and `curl` installed in your system.
 
 # Commands
 
