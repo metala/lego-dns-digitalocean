@@ -77,7 +77,7 @@ cmd_certificates() {
 }
 
 CERT_PATH_PREFIX="$PWD/.lego/certificates/$LEGO_DOMAIN"
-LEGO_ARGS="-a --dns="$LEGO_DNS" --domains="$LEGO_DOMAIN" --email="$LEGO_EMAIL""
+LEGO_ARGS="-a -k ec256 --dns="$LEGO_DNS" --domains="$LEGO_DOMAIN" --email="$LEGO_EMAIL""
 
 CMD="${1:-run}"
 shift
